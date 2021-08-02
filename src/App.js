@@ -6,6 +6,8 @@ import Contact from './components/jsx/Contact';
 import Login from './components/jsx/Login';
 import Register from './components/jsx/Register';
 import Nav from './components/jsx/Nav';
+import ForgotPassword from './components/jsx/ForgotPassword';
+import EmailVerification from './components/jsx/EmailVerification';
 import './App.css';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route exact path='/contact' component={Contact}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/register' component={Register}/>
+        <Route exact path='/forgotpassword' component={ForgotPassword}/>
+        <Route exact path='/verifyemail/:token' component={EmailVerification}/>
       </Switch>
     </>
   )

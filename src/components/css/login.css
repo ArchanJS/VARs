@@ -27,7 +27,10 @@
     color: aqua !important;
     margin-bottom: 30px;
 }
-.join-btn{
+.s-text{
+    color:aqua;
+}
+.form-btn{
     margin-top: 30px;
     width: 160px;
     height: 40px;
@@ -37,10 +40,21 @@
     border-radius: 10px;
     font-size: 20px;
 }
-.join-btn:hover{
+.form-btn:hover{
     box-shadow: 2px 2px 6px black;
     transform: scale(1.01);
 }
-.s-text{
-    color:aqua;
+.fp-rl-links{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.rl-fp{
+    text-decoration: none;
+    color: black;
+}
+.rl-fp:hover{
+    text-decoration: underline;
+    color: black;
 }
