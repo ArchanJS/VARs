@@ -8,6 +8,7 @@ import Register from './components/jsx/Register';
 import Nav from './components/jsx/Nav';
 import ForgotPassword from './components/jsx/ForgotPassword';
 import EmailVerification from './components/jsx/EmailVerification';
+import ResetPassword from './components/jsx/ResetPassword';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route exact path='/register' component={Register}/>
         <Route exact path='/forgotpassword' component={ForgotPassword}/>
         <Route exact path='/verifyemail/:token' component={EmailVerification}/>
+        <Route exact path='/resetpassword/:token' component={ResetPassword}/>
       </Switch>
     </>
   )
