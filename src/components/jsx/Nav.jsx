@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SportsSoccerIcon from '@material-ui/icons/SportsSoccer';
+import {userContext} from '../../App';
 
 function Nav() {
 
     const history=useHistory();
 
-    const [isLoggedIn,setIsLoggedIn]=useState(false);
+    const {state,dispatch}=useContext(userContext);
 
-    useEffect(()=>{
-        if(localStorage.getItem("VARsToken")) setIsLoggedIn(true);
-    },[history,isLoggedIn])
 
     return (
         <>
@@ -30,13 +28,14 @@ function Nav() {
                                 <NavLink className="nav-link" exact to='/contact'>Contact</NavLink>
                             </li>
                             {
-                                localStorage.getItem("VARsToken")
+                                state 
                                 ?
                                 <>
                                 <li className="nav-item mx-2">
                                     <p className="nav-link" onClick={()=>{
-                                        setIsLoggedIn(false);
+                                        dispatch({type:"USER",payload:false});
                                         localStorage.removeItem("VARsToken");
+                                        history.push('/login');
                                     }} style={{cursor:"pointer"}}><ExitToAppIcon style={{marginTop:"-4px", marginBottom:"0px"}}/></p>
                                 </li>
                                 </>

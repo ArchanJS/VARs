@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import SportsSoccerIcon from '@material-ui/icons/SportsSoccer';
 import '../css/login.css';
 import { NavLink, useHistory } from 'react-router-dom';
+import {userContext} from '../../App';
 
 function Login() {
 
@@ -10,6 +11,8 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const {state,dispatch}=useContext(userContext);
 
     const postData = async (e) => {
         try {
@@ -24,7 +27,7 @@ function Login() {
                 const {data}=await axios.post('/api/auth/login', {email, password }, config);
                 localStorage.setItem("VARsToken",data);
                 window.alert("Login successful!");
-                window.location.reload();
+                dispatch({type:"USER",payload:true});
                 history.push('/');
             }
         } catch (error) {
