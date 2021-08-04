@@ -63,6 +63,14 @@ userSchema.methods.generateTempToken=async function(){
     }
 }
 
+userSchema.methods.comparePasswords=async function(password){
+    try {
+        return await bcryptjs.compare(password,this.password);
+    } catch (error) {
+        return false;
+    }
+}
+
 const User=new mongoose.model("varusers",userSchema);
 
 module.exports=User;
