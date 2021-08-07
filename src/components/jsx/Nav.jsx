@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SportsSoccerIcon from '@material-ui/icons/SportsSoccer';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import '../css/nav.css'
 import {userContext} from '../../App';
 
 function Nav() {
@@ -21,6 +23,15 @@ function Nav() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 me-4 mb-lg-0">
+                            {
+                                state
+                                ?
+                                <li className="nav-item mx-2">
+                                    <NavLink className="nav-link" exact to='/ownprofile' style={{cursor:"pointer"}}><AccountCircleIcon style={{marginTop:"-4px", marginBottom:"0px"}}/></NavLink>
+                                </li>
+                                :
+                                <></>
+                            }
                             <li className="nav-item mx-2">
                                 <NavLink className="nav-link" exact to='/about'>About </NavLink>
                             </li>

@@ -1,0 +1,24 @@
+.own-post-card{
+    height: 300px;
+    width: 300px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: 2px aqua solid;
+    border-radius: 10px;
+    margin: 10px !important;
+}
+.own-post-content{
+    height: 50%;
+    max-height: 50%;
+    overflow-y: scroll;
+}
+.own-post-like-and-time{
+    height: 4%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
