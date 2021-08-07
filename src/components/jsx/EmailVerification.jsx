@@ -34,7 +34,7 @@ function EmailVerification() {
             <div className="container-fluid">
                 <div className="row bg-dark">
                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 f-half">
-                        <h1 className="display-2 app-name"><strong><SportsSoccerIcon style={{fontSize:"40px", color:"aqua", marginBottom:"3px"}}/>{isVerified}</strong></h1>
+                        <h1 className="display-2 app-name w-75 p-4 mb-4 text-center"><strong><SportsSoccerIcon style={{fontSize:"40px", color:"aqua", marginBottom:"3px"}}/>{isVerified}</strong></h1>
                         <button className="join-btn" onClick={()=>{history.push('/')}}>Go to home</button>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 s-half">

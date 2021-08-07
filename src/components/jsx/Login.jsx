@@ -44,11 +44,11 @@ function Login() {
             <div className="container-fluid">
                 <div className="row bg-dark">
                     <form className="col-lg-6 col-md-6 col-sm-12 col-12 f-half" onSubmit={postData}>
-                        <h1 className="display-4 app-name"><strong>Login</strong></h1>
-                        <input className="form-control my-3 w-75 mx-auto bg-dark" style={{ color: "aqua" }} placeholder="Enter your email" aria-label="default input example" value={email} type="email" onChange={(e) => setEmail(e.target.value)} />
-                        <input className="form-control my-3 w-75 mx-auto bg-dark" style={{ color: "aqua" }} placeholder="Enter password" aria-label="default input example" value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
+                        <h1 className="display-4 app-name p-2"><strong>Login</strong></h1>
+                        <input className="form-control my-3 w-75 mx-auto bg-dark p-2" style={{ color: "aqua" }} placeholder="Enter your email" aria-label="default input example" value={email} type="email" onChange={(e) => setEmail(e.target.value)} />
+                        <input className="form-control my-3 w-75 mx-auto bg-dark p-2" style={{ color: "aqua" }} placeholder="Enter password" aria-label="default input example" value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
                         <button className="form-btn" type="submit">Login</button>
-                        <div className="fp-rl-links">
+                        <div className="fp-rl-links p-4">
                             <NavLink exact to='/forgotpassword' className="rl-fp">Forgot password?</NavLink>
                             <NavLink exact to='/register' className="rl-fp">New user?</NavLink>
                         </div>

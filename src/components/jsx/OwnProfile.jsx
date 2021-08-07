@@ -50,7 +50,7 @@ function OwnProfile() {
                         <div className="own-profile-card">
                             <h6 className="text-dark my-2">Club : Club name</h6>
                             <h6 className="text-dark mb-2"><EmailIcon /> : {email}</h6>
-                            <button className="profile-edit-btn mx-auto my-2">Edit profile</button>
+                            <button className="profile-edit-btn mx-auto my-2" onClick={()=>history.push('/editprofile')}>Edit profile</button>
                             <div className="own-followers-following">
                                 <div className="own-follow-div mt-2">
                                     <button className="own-follow-btn">Followers</button>

@@ -18,6 +18,9 @@ function Register() {
             e.preventDefault();
             if(name.trim()==="" || email==="" || password==="" || cPassword==="") window.alert("Please enter all the details!");
             else if(password!==cPassword)window.alert("Passwords didn't match!");
+            else if(password.length<8){
+                window.alert("Password should contain at least 8 characters!");
+            }
             else{
                 const config = {
                     headers: {
@@ -28,7 +31,8 @@ function Register() {
                 window.alert("Registration successful!");
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            window.alert("Something went wrong! (Maybe you are using any existing email address)")
         }
     }
 
@@ -41,14 +45,14 @@ function Register() {
             <div className="container-fluid">
                 <div className="row bg-dark">
                     <form className="col-lg-6 col-md-6 col-sm-12 col-12 f-half" onSubmit={postData}>
-                    <h1 className="display-4 app-name"><strong>Register</strong></h1>
-                    <input className="form-control my-3 w-75 mx-auto bg-dark" style={{color:"aqua"}} placeholder="Enter your full name" aria-label="default input example" value={name} type="text" onChange={(e)=>setName(e.target.value)}/>
-                    <input className="form-control my-3 w-75 mx-auto bg-dark" style={{color:"aqua"}} placeholder="Enter your email" aria-label="default input example" value={email} type="email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input className="form-control my-3 w-75 mx-auto bg-dark" style={{color:"aqua"}} placeholder="Enter password" aria-label="default input example" value={password} type="password" onChange={(e)=>setPassword(e.target.value)}/>
-                    <input className="form-control my-3 w-75 mx-auto bg-dark" style={{color:"aqua"}} placeholder="Confirm password" aria-label="default input example" value={cPassword} type="password" onChange={(e)=>setCPassword(e.target.value)}/>
+                    <h1 className="display-4 app-name p-2"><strong>Register</strong></h1>
+                    <input className="form-control my-3 w-75 mx-auto bg-dark p-2" style={{color:"aqua"}} placeholder="Enter your full name" aria-label="default input example" value={name} type="text" onChange={(e)=>setName(e.target.value)}/>
+                    <input className="form-control my-3 w-75 mx-auto bg-dark p-2" style={{color:"aqua"}} placeholder="Enter your email" aria-label="default input example" value={email} type="email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input className="form-control my-3 w-75 mx-auto bg-dark p-2" style={{color:"aqua"}} placeholder="Enter password" aria-label="default input example" value={password} type="password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input className="form-control my-3 w-75 mx-auto bg-dark p-2" style={{color:"aqua"}} placeholder="Confirm password" aria-label="default input example" value={cPassword} type="password" onChange={(e)=>setCPassword(e.target.value)}/>
                     <button className="form-btn" type="submit">Register</button>
                     <div className="reg-fp-rl-links">
-                            <NavLink exact to='/login' className="reg-rl-fp">Already a user?</NavLink>
+                            <NavLink exact to='/login' className="reg-rl-fp pt-2">Already a user?</NavLink>
                         </div>
                     </form>
                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 s-half">

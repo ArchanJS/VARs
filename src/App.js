@@ -10,6 +10,7 @@ import ForgotPassword from './components/jsx/ForgotPassword';
 import EmailVerification from './components/jsx/EmailVerification';
 import ResetPassword from './components/jsx/ResetPassword';
 import OwnProfile from './components/jsx/OwnProfile';
+import EditProfile from './components/jsx/EditProfile';
 import {reducer,initialState} from './components/reducers/Reducer';
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
           <Route exact path='/verifyemail/:token' component={EmailVerification} />
           <Route exact path='/resetpassword/:token' component={ResetPassword} />
           <Route exact path='/ownprofile' component={OwnProfile}/>
+          <Route exact path='/editprofile' component={EditProfile}/>
         </Switch>
       </userContext.Provider>
     </>
