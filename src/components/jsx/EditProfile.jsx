@@ -22,9 +22,10 @@ function EditProfile() {
     };
 
 
-    const [name, setName] = useState("");
+    const [name, setName] = useState("No data available");
     const [profilePicture, setProfilePicture] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
-
+    const [bio,setBio]=useState("No data available");
+    const [favouriteClub,setFavouriteClub]=useState("No data available");
 
     const history = useHistory();
     useEffect(() => {
@@ -45,6 +46,8 @@ function EditProfile() {
                 const { data } = await axios.get("/api/private", config);
                 setName(data.name);
                 setProfilePicture(data.profilePicture);
+                setBio(data.bio);
+                setFavouriteClub(data.favouriteClub);
             } catch (err) {
                 history.push('/error');
                 console.log(err)
@@ -58,8 +61,11 @@ function EditProfile() {
     const postData = async (e) => {
         e.preventDefault();
         try {
-            if (name.trim() === "" || profilePicture === "") {
+            if (name.trim() === "" || profilePicture.trim() === "" || bio.trim() ==="" || favouriteClub.trim() ==="") {
                 window.alert("Don't leave any field empty!");
+            }
+            else if(bio.length>100){
+                window.alert("Your bio should contain maximum 100 characters!");
             }
             else {
                 const config = {
@@ -69,7 +75,7 @@ function EditProfile() {
                     },
                 };
                 const { data } = await axios.patch(`/api/private/updateprofile`, {
-                    name, profilePicture
+                    name, profilePicture, bio, favouriteClub
                 },
                     config
                 )
@@ -138,9 +144,9 @@ function EditProfile() {
                             <div className="own-editprofile-div mb-4">
                                 <h1 style={{ color: "aqua", borderBottom: "2px solid aqua" }}>Edit profile</h1>
                                 <input className="form-control mt-5 w-75 bg-dark py-2 ps-2" style={{ color: "aqua" }} placeholder="Enter your full name" aria-label="default input example" value={name} type="text" onChange={(e) => setName(e.target.value)} />
-                                <input className="form-control mt-5 w-75 bg-dark py-2 ps-2" style={{ color: "aqua" }} placeholder="Enter your favourite club" aria-label="default input example" />
+                                <input className="form-control mt-5 w-75 bg-dark py-2 ps-2" style={{ color: "aqua" }} placeholder="Enter your favourite club" aria-label="default input example" value={favouriteClub} onChange={(e)=>setFavouriteClub(e.target.value)} />
                                 <textarea type="text" className="form-control mt-5 w-75
-                             bg-dark py-2 ps-2" placeholder="Bio" rows="6" />
+                             bg-dark py-2 ps-2" style={{ color: "aqua" }} placeholder="Bio" rows="6" value={bio} onChange={(e)=>setBio(e.target.value)}/>
                                 <div className="editprofile-buttons mt-5">
                                     <button className="editprofile-btn" onClick={postData}>Update</button>
                                     <button className="editprofile-btn" onClick={(e)=>{

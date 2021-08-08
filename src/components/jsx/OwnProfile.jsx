@@ -13,6 +13,8 @@ function OwnProfile() {
     const [email,setEmail]=useState("No data available!");
     const [userID,setUserID]=useState("No data available!");
     const [profilePicture,setProfilePicture]=useState("No data available!");
+    const [bio,setBio]=useState("No data available");
+    const [favouriteClub,setFavouriteClub]=useState("No data available");
 
     const getData=async()=>{
         try {
@@ -27,6 +29,8 @@ function OwnProfile() {
             setEmail(data.email);
             setUserID(data.userID);
             setProfilePicture(data.profilePicture);
+            setBio(data.bio);
+            setFavouriteClub(data.favouriteClub);
         } catch (error) {
             console.log("Can not get data!");
         }
@@ -48,7 +52,7 @@ function OwnProfile() {
                         <div className="text-center" style={{ color: "aqua", fontSize: "24px", borderBottom: "1px solid aqua" }}>{name}</div>
                         <div className="text-muted my-2">{userID}</div>
                         <div className="own-profile-card">
-                            <h6 className="text-dark my-2">Club : Club name</h6>
+                            <h6 className="text-dark my-2">Club : {favouriteClub}</h6>
                             <h6 className="text-dark mb-2"><EmailIcon /> : {email}</h6>
                             <button className="profile-edit-btn mx-auto my-2" onClick={()=>history.push('/editprofile')}>Edit profile</button>
                             <div className="own-followers-following">
@@ -66,7 +70,7 @@ function OwnProfile() {
                     <div className="own-bio-posts">
                         <div className="own-bio-div mb-4">
                             <h1 style={{ color: "aqua", borderBottom: "2px solid aqua" }}>Bio</h1>
-                            <p className="text-muted mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quam ex veniam ab. Suscipit quidem dolorem porro repellat temporibus recusandae tempora, voluptate maiores saepe ipsum vitae dolorum explicabo qui voluptatum debitis unde dolore, nam cum, ducimus labore. Perspiciatis, molestiae commodi?</p>
+                            <p className="text-muted mt-4">{bio}</p>
                         </div>
                         <div className="own-posts-details-div">
                             <h1 style={{ color: "aqua", borderBottom: "2px solid aqua" }}>Posts</h1>
