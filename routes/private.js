@@ -169,7 +169,7 @@ router.patch('/followunfollow',authUser,async(req,res)=>{
             res.status(200).json({message:"User unfollowed!"});
         }
     } catch (error) {
-        res.status(400).json({ error: "Can not follow or unfollow post!" });
+        res.status(400).json({ error: "Can not follow or unfollow user!" });
     }
 })
 
