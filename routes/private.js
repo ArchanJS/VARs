@@ -45,6 +45,8 @@ router.delete('/deleteprofile', authUser, async (req, res) => {
     try {
         let userID = req.user.userID;
         await User.deleteOne({ userID });
+        let postedBy=userID;
+        await Post.deleteMany({postedBy});
         res.status(200).json({ message: "User deleted!" });
     } catch (error) {
         res.status(400).json({ error: "Something went wrong!" });
@@ -123,7 +125,51 @@ router.patch('/likeunlike',authUser,async(req,res)=>{
             res.status(200).json({message:"Post unliked!"});
         }
     } catch (error) {
-        res.status(400).json({ error: "Can not like or unlike posts!" });
+        res.status(400).json({ error: "Can not like or unlike post!" });
+    }
+})
+
+router.patch('/followunfollow',authUser,async(req,res)=>{
+    try {
+        const {userID}=req.body;
+        let isFollowing=false;
+        for(let i=0;i<req.user.following.length;i++){
+            if(req.user.following[i].userID==userID){
+                isFollowing=true;
+                break;
+            }
+        }
+        if(userID===req.user.userID){
+            res.status(400).json({ error: "You can not follow yourself!" });
+        }
+        else if(isFollowing==false){
+            await User.updateOne({userID:req.user.userID},{
+                $push:{
+                    following:{userID}
+                }
+            })
+            await User.updateOne({userID},{
+                $push:{
+                    followers:{userID:req.user.userID}
+                }
+            })
+            res.status(200).json({message:"User followed!"})
+        }
+        else{
+            await User.updateOne({userID:req.user.userID},{
+                $pull:{
+                    following:{userID}
+                }
+            })
+            await User.updateOne({userID},{
+                $pull:{
+                    followers:{userID:req.user.userID}
+                }
+            })
+            res.status(200).json({message:"User unfollowed!"});
+        }
+    } catch (error) {
+        res.status(400).json({ error: "Can not follow or unfollow post!" });
     }
 })
 

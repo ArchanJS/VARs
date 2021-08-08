@@ -44,7 +44,13 @@ const userSchema = new mongoose.Schema({
     favouriteClub:{
         type:String,
         default:"No club selected"
-    }
+    },
+    followers:[{
+        userID:String
+    }],
+    following:[{
+        userID:String
+    }]
 },
     { timestamps: true }
 )
