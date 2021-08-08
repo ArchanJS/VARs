@@ -31,6 +31,19 @@ const userSchema = new mongoose.Schema({
     verified: {
         type: Boolean,
         default: false
+    },
+    profilePicture:{
+        type:String,
+        default:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+    },
+    bio:{
+        type:String,
+        default:"Hello there! Follow me to get more football related news. :)",
+        maxlength:100
+    },
+    favouriteClub:{
+        type:String,
+        default:"No club selected"
     }
 },
     { timestamps: true }

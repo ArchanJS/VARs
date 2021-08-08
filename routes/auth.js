@@ -4,6 +4,7 @@ const User=require('../models/User');
 const sendEmail=require('../utils/sendEmail');
 const jwt=require('jsonwebtoken');
 const bcryptjs=require('bcryptjs');
+const Post=require('../models/Post');
 
 router.get('/',(req,res)=>{
     res.status(200).send("Welcome to home!");
@@ -156,6 +157,16 @@ router.post('/resetpassword/:token',async(req,res)=>{
     } catch (error) {
         console.log(error);
         res.status(400).json({error:"Something went wrong!"});
+    }
+})
+
+router.get('/allposts',async(req,res)=>{
+    try {
+        const posts=await Post.find();
+        await posts.reverse();
+        res.status(200).send(posts);
+    } catch (error) {
+        res.status(400).json({error:"Can not get posts!"});
     }
 })
 
