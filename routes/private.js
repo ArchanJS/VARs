@@ -44,6 +44,12 @@ router.patch('/changepassword', authUser, async (req, res) => {
 router.delete('/deleteprofile', authUser, async (req, res) => {
     try {
         let userID = req.user.userID;
+        await User.updateMany({verified:true},{
+            $pull:{
+                followers:{userID},
+                following:{userID}
+            }
+        })
         await User.deleteOne({ userID });
         let postedBy=userID;
         await Post.deleteMany({postedBy});
