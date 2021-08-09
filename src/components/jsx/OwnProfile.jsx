@@ -3,7 +3,8 @@ import axios from 'axios';
 import EmailIcon from '@material-ui/icons/Email';
 import '../css/ownprofile.css';
 import Post from './Post';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 function OwnProfile() {
 
@@ -68,12 +69,15 @@ function OwnProfile() {
                         </div>
                     </div>
                     <div className="own-bio-posts">
-                        <div className="own-bio-div mb-4">
+                        <div className="own-bio-div mb-4 ms-4">
                             <h1 style={{ color: "aqua", borderBottom: "2px solid aqua" }}>Bio</h1>
                             <p className="text-muted mt-4">{bio}</p>
                         </div>
                         <div className="own-posts-details-div">
-                            <h1 style={{ color: "aqua", borderBottom: "2px solid aqua" }}>Posts</h1>
+                            <div className="posts-heading-div">
+                            <h1 style={{ color: "aqua", borderBottom: "2px solid aqua" }} className="ms-3">Posts</h1>
+                            <h1 style={{ color: "aqua", }} className="me-5"><NavLink exact to='/ownposts' style={{textDecoration:"none", color:"aqua"}}><ArrowForwardIcon style={{fontSize:"40px"}}/></NavLink></h1>
+                            </div>
                             <div className="own-posts mt-4">
                                 <Post />
                                 <Post />

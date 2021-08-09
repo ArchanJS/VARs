@@ -97,6 +97,11 @@
     align-items: center;
     justify-content: center;
 }
+.posts-heading-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 .own-bio-div{
     height: 30%;
     width: 100%;
