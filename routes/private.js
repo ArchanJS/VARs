@@ -179,4 +179,28 @@ router.patch('/followunfollow',authUser,async(req,res)=>{
     }
 })
 
+router.post('/isliked',authUser,async(req,res)=>{
+    try {
+        const userID=req.user.userID;
+        const {data}=req.body;
+        // console.log(data);
+        let likeLi=[];
+        for(let i=0;i<data.length;i++){
+            let postID=data[i].postID;
+            // console.log(postID);
+            const post=await Post.findOne({postID});
+            // console.log(post);
+            let isLiked=false;
+            for(let i=0;i<post.reactedBy.length;i++){
+                if(userID==post.reactedBy[i].userID) isLiked=true;
+            }
+            likeLi.push(isLiked);
+        }
+        res.status(200).send(likeLi);        
+    }
+    catch(error){
+        res.status(400).json({error:"Can not send the list"});
+    }
+})
+
 module.exports = router;
