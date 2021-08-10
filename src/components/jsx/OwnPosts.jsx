@@ -12,7 +12,7 @@ function OwnPosts() {
     const [title,setTitle]=useState("");
     const [content,setContent]=useState("");
     const [posts,setPosts]=useState([]);
-    const [reacts,setReacts]=useState(0);
+    const [isLikedLi,setIsLikedLi]=useState([]);
 
     const createPost=async(e)=>{
         e.preventDefault();
@@ -52,6 +52,8 @@ function OwnPosts() {
                 },
             };
             const {data}=await axios.get('/api/private/ownposts',config);
+            const res=await axios.post('/api/private/isliked',{data},config);
+            setIsLikedLi(res.data);
             console.log(data);
             setPosts(data);
         } catch (error) {
@@ -59,10 +61,12 @@ function OwnPosts() {
         }
     }
 
+    
     useState(()=>{
         getPosts();
     },[history])
-
+    
+    
     const likeOrUnlike=async(postID)=>{
         try {
             const config = {
@@ -79,6 +83,8 @@ function OwnPosts() {
             
         }
     }
+    
+    
 
     return (
         <>
@@ -101,7 +107,7 @@ function OwnPosts() {
                         posts.length>0
                         ?
                         posts.map((val,ind)=>{
-                            return <Opost title={val.title} content={val.content} key={val.postID} postID={val.postID} postedBy={val.postedBy} createdAt={val.createdAt.substr(0,10)} totalReacts={val.reactedBy.length} checkLike={likeOrUnlike}/>
+                            return <Opost title={val.title} content={val.content} key={val.postID} postID={val.postID} postedBy={val.postedBy} createdAt={val.createdAt.substr(0,10)} totalReacts={val.reactedBy.length} checkLike={likeOrUnlike} isLiked={isLikedLi[ind]}/>
                         })
                         :
                         <></>

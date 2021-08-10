@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import '../css/post.css';
 
-function Opost({title, content, postID, postedBy, createdAt, totalReacts, checkLike}) {
+function Opost({title, content, postID, postedBy, createdAt, totalReacts, checkLike, isLiked}) {
+
+    const [liked,setLiked]=useState(isLiked);
+
     return (
         <>
             <div className="own-post-card mt-4 p-4">
@@ -12,10 +15,17 @@ function Opost({title, content, postID, postedBy, createdAt, totalReacts, checkL
                 <div className="own-post-content mt-2 pe-1">{content}
                 </div>
                 <div className="own-post-like-and-time my-4" onClick={()=>{
-                    checkLike(postID)
+                    checkLike(postID);
+                    setLiked(!liked);
                 }}>
                     <div className="own-post-like">
-                        <FavoriteBorderIcon style={{ color: "black", cursor: "pointer" }}/> {totalReacts}
+                        {
+                            liked
+                            ?
+                            <FavoriteIcon style={{ color: "black", cursor: "pointer" }}/>
+                            :
+                            <FavoriteBorderIcon style={{ color: "black", cursor: "pointer" }}/>
+                        } {totalReacts}
                     </div>
                     <div className="own-post-time text-muted mt-1" style={{ fontSize: "12px" }}>{createdAt}</div>
                 </div>
