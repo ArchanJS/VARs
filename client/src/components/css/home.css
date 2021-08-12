@@ -1,0 +1,46 @@
+.f-half{
+    height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: aqua;
+    border-right: 1px aqua solid;
+    border-radius: 50%;
+}
+.s-half{
+    height: 100vh !important;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end !important;
+    padding: 60px;
+}
+.app-name{
+    background-color: rgba(0, 0, 0, 0.884);
+    padding: 6px 28px;
+    padding-top: 8px;
+    border: black 1px solid;
+    border-radius: 20px;
+    color: aqua !important;
+    margin-bottom: 30px;
+}
+.join-btn{
+    margin-top: 30px;
+    width: 160px;
+    height: 40px;
+    background-color: aqua;
+    border: black solid 2px;
+    color: black;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.join-btn:hover{
+    box-shadow: 2px 2px 6px black;
+    transform: scale(1.01);
+}
+.s-text{
+    color:aqua;
+}
