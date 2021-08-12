@@ -30,22 +30,22 @@
  ## Screenshots
 
  ### Home Page
- [![Screenshot-6.png](https://i.postimg.cc/d1kzfxZ9/Screenshot-6.png)](https://postimg.cc/5YJ7Yp3H)
+ [![Screenshot-13.png](https://i.postimg.cc/bwQn8ykG/Screenshot-13.png)](https://postimg.cc/68pqfNHw)
 
  ### Registration page
- [![Screenshot-4.png](https://i.postimg.cc/jSRYjcBs/Screenshot-4.png)](https://postimg.cc/tYvMS3Xf)
+ [![Screenshot-11.png](https://i.postimg.cc/dVTBCcdv/Screenshot-11.png)](https://postimg.cc/cv0wqjX5)
 
 ### Login page
-[![Screenshot-5.png](https://i.postimg.cc/5tkhnVy0/Screenshot-5.png)](https://postimg.cc/kVKYgLx3)
+[![Screenshot-12.png](https://i.postimg.cc/q7T8Ch4X/Screenshot-12.png)](https://postimg.cc/xX6kwdkc)
 
 ### Profile Page
-[![Screenshot-7.png](https://i.postimg.cc/256pQ6zM/Screenshot-7.png)](https://postimg.cc/k2kh97Rv)
+[![Screenshot-15.png](https://i.postimg.cc/T2ptr4Zk/Screenshot-15.png)](https://postimg.cc/1410SJR6)
 
 ### Profile updation page
-[![Screenshot-8.png](https://i.postimg.cc/rmBv2NS2/Screenshot-8.png)](https://postimg.cc/YGxX1gnd)
+[![Screenshot-16.png](https://i.postimg.cc/ZR0xxWD9/Screenshot-16.png)](https://postimg.cc/njbmHhxZ)
 
 ### Feed
-[![Screenshot-10.png](https://i.postimg.cc/PfDgz0jX/Screenshot-10.png)](https://postimg.cc/NLgCQJFS)
+[![Screenshot-14.png](https://i.postimg.cc/7PdJ2GNG/Screenshot-14.png)](https://postimg.cc/vD7mRmkb)
 
 ### Own posts
-[![Screenshot-9.png](https://i.postimg.cc/D01Rv4gJ/Screenshot-9.png)](https://postimg.cc/m12mVDKB)
+[![Screenshot-17.png](https://i.postimg.cc/vH5LhFXv/Screenshot-17.png)](https://postimg.cc/N5fHGn3y)
