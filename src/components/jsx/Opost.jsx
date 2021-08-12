@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import DeleteIcon from '@material-ui/icons/Delete';
 import '../css/post.css';
 
 function Opost({title, content, postID, postedBy, createdAt, totalReacts, checkLike, isLiked}) {
@@ -10,6 +11,7 @@ function Opost({title, content, postID, postedBy, createdAt, totalReacts, checkL
     return (
         <>
             <div className="own-post-card mt-4 p-4">
+                <DeleteIcon style={{ color: "black", cursor: "pointer"}}/>
                 <h4 className="text-dark my-1" style={{ borderBottom: "2px solid black" }}>{title}</h4>
                 <h6 className="text-muted my-1" >Posted by {postedBy}</h6>
                 <div className="own-post-content mt-2 pe-1">{content}

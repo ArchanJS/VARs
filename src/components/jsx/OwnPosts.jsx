@@ -61,8 +61,11 @@ function OwnPosts() {
         }
     }
 
+    const deletePost=
+
     
     useState(()=>{
+        if(!localStorage.getItem("VARsToken")) history.push('/login');
         getPosts();
     },[history])
     
@@ -80,7 +83,7 @@ function OwnPosts() {
             console.log(data);
             setPosts(data);
         } catch (error) {
-            
+            console.log(error);
         }
     }
     

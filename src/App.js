@@ -12,6 +12,7 @@ import ResetPassword from './components/jsx/ResetPassword';
 import OwnProfile from './components/jsx/OwnProfile';
 import EditProfile from './components/jsx/EditProfile';
 import OwnPosts from './components/jsx/OwnPosts';
+import Feed from './components/jsx/Feed';
 import {reducer,initialState} from './components/reducers/Reducer';
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
           <Route exact path='/ownprofile' component={OwnProfile}/>
           <Route exact path='/editprofile' component={EditProfile}/>
           <Route exact path='/ownposts' component={OwnPosts}/>
+          <Route exact path='/feed' component={Feed}/>
         </Switch>
       </userContext.Provider>
     </>
